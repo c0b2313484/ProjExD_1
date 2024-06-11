@@ -16,6 +16,7 @@ def main():
     kt_rct = kt_img.get_rect() #4_こうかとん画像rectを取得する
     kt_rct.center = 300, 200 #8-2
     tmr = 0
+    count = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -27,16 +28,23 @@ def main():
         screen.blit(bg_img_2, [-x+4800, 0]) #7-2
 
         key_lst = pg.key.get_pressed() #全キーの押下状態のリストを取得
+        # kt_rct.move_ip((mv))
+        mv = [-1, 0]
         if key_lst[pg.K_UP]: #上矢印が押されていたら
-            kt_rct.move_ip((-1, -1)) #引数：横方向,縦方向
+            # kt_rct.move_ip((-1, -1))
+            mv[0] -= 1
+            mv[1] -= 1
         if key_lst[pg.K_DOWN]:
-            kt_rct.move_ip((2, 1))
+            # kt_rct.move_ip((2, 1))
+            mv[0] += 2
+            mv[1] += 1
         if key_lst[pg.K_RIGHT]:
-            kt_rct.move_ip((2, 0))
+            # kt_rct.move_ip((2, 0))
+            mv[0] += 2
         if key_lst[pg.K_LEFT]:
-            kt_rct.move_ip((-1, 0))
-        else:
-            kt_rct.move_ip((-1, 0))
+            # kt_rct.move_ip((-1, 0))
+            mv[0] -= 1
+        kt_rct.move_ip((mv))
         screen.blit(kt_img, kt_rct) #kt_img画像をkt_rctに貼る
         pg.display.update()
         tmr += 1        
