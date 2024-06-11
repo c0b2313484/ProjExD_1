@@ -18,6 +18,9 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0]) #3
+        kt_rct = kt_img.get_rect() #4_こうかとん画像rectを取得する
+        kt_rct.center = 300, 200
+        screen.blit(kt_img, kt_rct) #kt_img画像をkt_rctに貼る
         pg.display.update()
         tmr += 1        
         clock.tick(10)
