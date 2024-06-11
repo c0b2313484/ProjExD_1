@@ -28,12 +28,14 @@ def main():
 
         key_lst = pg.key.get_pressed() #全キーの押下状態のリストを取得
         if key_lst[pg.K_UP]: #上矢印が押されていたら
-            kt_rct.move_ip((0, -1)) #引数：横方向,縦方向
+            kt_rct.move_ip((-1, -1)) #引数：横方向,縦方向
         if key_lst[pg.K_DOWN]:
-            kt_rct.move_ip((0, 1))
+            kt_rct.move_ip((2, 1))
         if key_lst[pg.K_RIGHT]:
-            kt_rct.move_ip((1, 0))
+            kt_rct.move_ip((2, 0))
         if key_lst[pg.K_LEFT]:
+            kt_rct.move_ip((-1, 0))
+        else:
             kt_rct.move_ip((-1, 0))
         screen.blit(kt_img, kt_rct) #kt_img画像をkt_rctに貼る
         pg.display.update()
