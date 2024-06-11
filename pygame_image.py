@@ -17,7 +17,8 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0]) #3
+        x = tmr%800 #6
+        screen.blit(bg_img, [-x, 0]) #3
         kt_rct = kt_img.get_rect() #4_こうかとん画像rectを取得する
         kt_rct.center = 300, 200
         screen.blit(kt_img, kt_rct) #kt_img画像をkt_rctに貼る
