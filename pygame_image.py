@@ -23,7 +23,7 @@ def main():
         screen.blit(kt_img, kt_rct) #kt_img画像をkt_rctに貼る
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200) #5_FPSの変更
 
 
 if __name__ == "__main__":
